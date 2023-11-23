@@ -128,3 +128,91 @@ v) 보유 기간 설정:
 <br>
 
 - roboflow 사이트로 데이터셋 전처리, Hugging Face 사이트로 인식 모델 테스트
+<br>
+i) 데이터 레포지토리 생성하기
+<br>
+<br>
+- Create New Project 클릭 후, Project Type - Object Detection 선택
+<br>
+<br>
+ii) 이미지 데이터 라벨링
+<br>
+<br>
+- 훈련 모델에 사용할 이미지 데이터를 가져온 후, 라벨링할 부분에 드래그한 후 클래스 추가<br>
+- 모든 사진의 라벨링 작업 후 Add # image to Dataset 클릭한 후에, Train, Valid, Test 비율 설정 (Train 70%, Valid 20%, Test 10% 비율로 설정)
+<br>
+<br>
+iii) 데이터셋 내보내기
+<br>
+<br>
+- Custom Train and Upload - Get Snippet 으로 zip 파일로 데이터셋 내보내기
+<br>
+<br>
+iv) Google Colab 실행 후 모델 학습 실행하기
+<br>
+<br>
+- Google Colab 실행 후, 런타임 유형을 GPU로 변경<br>
+- YOLOv8 설치 및 import<br>
+- roboflow에서 라벨링한 데이터셋 가져온 후 모델 학습하기 (에포크 개수 25, 이미지 픽셀 800)<br>
+- 학습된 모델은 content/runs/detect/train/weights/best.pt에 저장<br>
+- best.pt : 학습된 모델 중 가장 정확도가 높은 값을 나타내는 모델<br>
+<br>
+<br>
+v) 학습 모델을 이용한 화살표, 숫자 인식 테스트 생성 - Hugging Face
+<br>
+<br>
+- 학습된 yolo 모델을 gradio 모듈을 이용해서 테스트 생성<br>
+- 학습된 yolo 모델 가져오기 및 이미지 input 박스 생성 코드 작성후 app.py에 저장<br>
+- 필요한 모듈을 requirements.txt에, yolo 모델 라벨값을 values.py에 작성 후 저장<br>
+- Hugging Face에 Space 생성 후, Files에 app.py, best.pt, requirements.txt, values.py 업로드 후 app 클릭 -> 테스트 박스 생성
+<br>
+<br>
+vi) 생성된 박스를 이용해 모델 학습
+<br>
+<br>
+- YOLO를 이용해서 컨투어를 그린 후, 컨투어 속의 이미지 예측을 위해 이미지를 추출
+<br>
+<br>
+vii) YOLO 컨투어 이미지 학습
+<br>
+<br>
+- YOLO의 컨투어는 자체 모델에 비해 여백이 많이 잡히므로 무작위 확대와 무작위 이동 과정을 추가하여 학습 데이터를 생성함
+<br>
+<br>
+<b>4. App 개발</b>
+<br>
+<br>
+Python 내에서 Mobile Application을 구현하는 것을 목표로 했지만, 기능적 제약이나 환경 설정 문제로 Flutter를 활용해 UI 제작, API 및 DB 연동을 구현했다. <br>
+초기 기능 구현
+<br>
+- 카메라
+- 이동 버튼
+<br>
+<br>
+추가 기능
+<br>
+- UI 변경
+- Database 연동
+- AWS 서버 구축 및 API 연동 
+<b>5. Database 구축</b>
+<br>
+<br>
+i) Cloud Firestore
+<br>
+빠른 쿼리와 실시간 동기화 기능을 제공하는 NoSQL Database. Realtime Database에 비해 다양한 기능이 있다고 하지만, 제작한 모바일 앱을 Virtual Machine이 아닌 개인 기기에서 실행했을 때 데이터 적재가 느린 경우가 있어 실험 단계에서만 사용했다.
+<br>
+<br>
+ii) Realtime Database
+<br>
+Firebase 초기 Database이지만, 모바일 앱 내에서 찍은 사진이 실시간으로 서버를 거쳐 나와야 하는 상황에서는 실험 결과 속도가 더 빨랐기 때문에 최종적으로 Realtime Database를 선택했다.
+<br>
+<br>
+<b>6.  API 배포</b>
+<br>
+<br>
+
+- AWS EC2 내에 모델 실행 파일을 넣고 FastAPI를 이용해서 API를 배포
+- App에서 사진을 촬영하면 이미지가 Firebase의 Realtime Database에 저장되고 다시 API를 호출하여 요청을 보내면 API는 Database에서 이미지를 가져와서 예측 결과를 App으로 반환
+<br>
+<br>
+## 4. 최종 결과물
