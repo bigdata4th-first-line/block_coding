@@ -97,60 +97,47 @@ v) 보유 기간 설정:
 <b>2. 모델링</b>
 <br>
 <br>
-<b>i) 블럭 개수 구하기</b>
-<br>
+i) 블럭 개수 구하기
 - 가장 큰 컨투어의 비율을 통해 블럭의 개수를 구할 수 있다.
 <br>
 <br>
-<b>i) 화살표, 숫자 컨투어 구하기</b>
-<br>
+ii) 화살표, 숫자 컨투어 구하기
 - 블럭의 개수를 파악하고 내부 비율에 따라 화살표와 숫자 컨투어가 있는 위치를 대략적으로 추정 가능함. 해당 지역 근방에 중심이 위치한 컨투어 중 가장 작은 컨투어를 지정하고, 행동의 경우 블럭의 색이 다른 것을 이용해 특정 위치 픽셀의 RGB 값을 추출
 <br>
 <br>
-<b>iii) 학습 이미지 생성</b>
-<br>
+iii) 학습 이미지 생성
 - 사진을 수천 장 촬영하여 학습 데이터를 구하는 것은 비효율적이어서 직접 생성함. 크기 조절과 무작위 회전, 회색조, 이진화 등의 과정을 거쳐 학습 데이터 생성. 데이터의 수는 화살표는 방향별로 1만 장, 숫자는 숫자별로 2만 장의 데이터를 생성함
 <br>
 <br>
-<b>iv) Train History</b>
-<br>
+iv) Train History
 - 학습 데이터의 다양성이 높지는 않기 때문에 train history의 accuracy는 1에 가깝게 나타남.
 -> 정해진 상황에서는 좋은 예측 성능을 보여줄 수 있다.
 <br>
 <br>
-<b>v) 행동 예측</b>
-<br>
+v) 행동 예측
 - 블럭의 행동을 맞추는 과정. RGB는 3개의 값을 이용해서 추정해야하기 때문에 복잡하고 불편하다. HSV로 바꾸면 H 값 하나로 색상을 알 수 있어, H 값의 조건에 따라 행동을 추정
 
 <br>
 <br>
 <b>3. YOLO 모델 튜닝</b>
 <br>
-
+<br>
 - roboflow 사이트로 데이터셋 전처리, Hugging Face 사이트로 인식 모델 테스트
 <br>
 i) 데이터 레포지토리 생성하기
-<br>
-<br>
 - Create New Project 클릭 후, Project Type - Object Detection 선택
 <br>
 <br>
 ii) 이미지 데이터 라벨링
-<br>
-<br>
 - 훈련 모델에 사용할 이미지 데이터를 가져온 후, 라벨링할 부분에 드래그한 후 클래스 추가<br>
 - 모든 사진의 라벨링 작업 후 Add # image to Dataset 클릭한 후에, Train, Valid, Test 비율 설정 (Train 70%, Valid 20%, Test 10% 비율로 설정)
 <br>
 <br>
 iii) 데이터셋 내보내기
-<br>
-<br>
 - Custom Train and Upload - Get Snippet 으로 zip 파일로 데이터셋 내보내기
 <br>
 <br>
 iv) Google Colab 실행 후 모델 학습 실행하기
-<br>
-<br>
 - Google Colab 실행 후, 런타임 유형을 GPU로 변경<br>
 - YOLOv8 설치 및 import<br>
 - roboflow에서 라벨링한 데이터셋 가져온 후 모델 학습하기 (에포크 개수 25, 이미지 픽셀 800)<br>
@@ -159,8 +146,6 @@ iv) Google Colab 실행 후 모델 학습 실행하기
 <br>
 <br>
 v) 학습 모델을 이용한 화살표, 숫자 인식 테스트 생성 - Hugging Face
-<br>
-<br>
 - 학습된 yolo 모델을 gradio 모듈을 이용해서 테스트 생성<br>
 - 학습된 yolo 모델 가져오기 및 이미지 input 박스 생성 코드 작성후 app.py에 저장<br>
 - 필요한 모듈을 requirements.txt에, yolo 모델 라벨값을 values.py에 작성 후 저장<br>
@@ -168,14 +153,10 @@ v) 학습 모델을 이용한 화살표, 숫자 인식 테스트 생성 - Huggin
 <br>
 <br>
 vi) 생성된 박스를 이용해 모델 학습
-<br>
-<br>
 - YOLO를 이용해서 컨투어를 그린 후, 컨투어 속의 이미지 예측을 위해 이미지를 추출
 <br>
 <br>
 vii) YOLO 컨투어 이미지 학습
-<br>
-<br>
 - YOLO의 컨투어는 자체 모델에 비해 여백이 많이 잡히므로 무작위 확대와 무작위 이동 과정을 추가하여 학습 데이터를 생성함
 <br>
 <br>
@@ -185,15 +166,17 @@ vii) YOLO 컨투어 이미지 학습
 Python 내에서 Mobile Application을 구현하는 것을 목표로 했지만, 기능적 제약이나 환경 설정 문제로 Flutter를 활용해 UI 제작, API 및 DB 연동을 구현했다. <br>
 초기 기능 구현
 <br>
-- 카메라
+- 카메라<br>
 - 이동 버튼
 <br>
 <br>
 추가 기능
 <br>
-- UI 변경
-- Database 연동
-- AWS 서버 구축 및 API 연동 
+- UI 변경<br>
+- Database 연동<br>
+- AWS 서버 구축 및 API 연동 <br>
+<br>
+<br>
 <b>5. Database 구축</b>
 <br>
 <br>
