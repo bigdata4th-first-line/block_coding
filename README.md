@@ -198,4 +198,111 @@ Firebase 초기 Database이지만, 모바일 앱 내에서 찍은 사진이 실�
 - App에서 사진을 촬영하면 이미지가 Firebase의 Realtime Database에 저장되고 다시 API를 호출하여 요청을 보내면 API는 Database에서 이미지를 가져와서 예측 결과를 App으로 반환
 <br>
 <br>
+
 ## 4. 최종 결과물
+<br>
+<br>
+i) YOLO
+<br>
+<br>
+- YOLO로 생성한 이미지 인식 모델은 화살표와 숫자를 각각 인식하고, 인식률은 0.7을 나타내었다.
+<br>
+<br>
+ii) YOLO Tuning 모델 / Osmo 블럭 인식 결과
+<br>
+<br>
+iii) Application
+<br>
+<br>
+<b>시연 영상
+https://youtu.be/u0yVr2vYNkU?si=l6BmoKHWTctFtOcE </b>
+<br>
+<br>
+
+## 5. 고도화 및 추후 개선 방안
+<br>
+교육 콘텐츠 
+<br>
+- 사용자가 창의성을 발휘해서 문제를 해결할 수 있는 콘텐츠를 개발한다.
+<br>
+게임성
+<br>
+- 흥미를 통해 스스로 학습에 몰두할 수 있도록 게임성을 확보해 줄 필요가 있다.
+<br>
+모델 유연성
+<br>
+- 다양한 각도에서 찍더라도 100%에 가깝게 인식할 수 있도록 모델의 유연성과 정확도를 올려야 한다.
+<br>
+지연 시간 최소화
+<br>
+- 긴 로딩 시간은 사용자의 흥미를 저하시키므로 3초 이내로 작동할 수 있도록 지연 시간을 최소화해야 한다.
+<br>
+<br>
+
+## 6. 개발 환경
+<br>
+프로그래밍 언어 및 라이브러리
+<br>
+- Python, Dart, HTML, Gradio, Yolo, Tensorflow, OpenCV
+<br>
+통합 개발 환경(IDE)
+<br>
+- VS Code
+<br>
+언어 및 프레임워크 연구
+<br>
+- Beeware, kivy, kotlin, react, Android Studio,  Flutter 
+<br>
+- Github Copilot 
+<br>
+프로젝트 관리 도구
+<br>
+- GitHub, roboflow
+<br>
+<br>
+<b>[yolo모델 학습 개발환경]</b>
+<br>
+ultralytics (version 8.0.2)<br>
+python (version 3.11.5)<br>
+gradio (version 4.0.2)<br>
+torch (version 2.1.0)<br>
+opencv (version 4.8.0)<br>
+numpy (version 1.24.3)<br>
+<br>
+<br>
+<b>[AWS EC2 환경]</b>
+<br>
+Ubuntu 22.04 LTS<br>
+python (version 3.10.12)<br>
+tensorflow-cpu (version 2.15.0)<br>
+opencv-python (version 4.8.1.78)<br>
+numpy (version 1.26.2)<br>
+torch (version 2.1.0)<br>
+ultralytics (version 8.0.209)<br>
+firebase-admin (version 6.2.0)<br>
+fastapi (version 0.104.1)<br>
+uvicorn (version 0.24.0.post1)<br>
+<br>
+<br>
+
+## 7. 소스 코드
+<br>
+깃허브 주소
+<br>
+https://github.com/bigdata4th-first-line/block_coding.git
+<br>
+yolo 이미지 인식 모델(Hugging Face)
+<br>
+https://tongsil-find-arrow-direction-number.hf.space
+<br>
+<br>
+
+## 8. 참고 문헌
+<br>
+<br>
+5세 유아의 특징 - 5세 발달 특성>연령별 발달정보>육아정보 | 아동교육연구지원센터 (silla.ac.kr)<br>
+OSMO - https://www.playosmo.com/ko-KR/<br>
+Yolov8 이미지 인식 Computer Vision & Machine Intelligence Lab. - YOLOv8 - Computer Vision & Machine Intelligence (catholic.ac.kr)<br>
+Opencv - https://github.com/opencv/opencv<br>
+OpenCV - Open Computer Vision Library<br>
+dynamo db, s3 - https://docs.aws.amazon.com/<br>
