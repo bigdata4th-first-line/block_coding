@@ -114,27 +114,40 @@ v) 보유 기간 설정:
 <b>2. 모델링</b>
 
 i) 블럭 개수 구하기
-- 가장 큰 컨투어의 비율을 통해 블럭의 개수를 구할 수 있다.
+| ![blocks](https://github.com/bigdata4th-first-line/block_coding/assets/50532905/859c26b0-278f-41b9-87f3-d9dc73714d06) |
+|:--:|
+| <b> [Figure3] 블럭 개수 구하기 </b> |
+| 가장 큰 컨투어의 비율을 통해 블럭의 개수를 구할 수 있다. |
   
 ii) 화살표, 숫자 컨투어 구하기
-- 블럭의 개수를 파악하고 내부 비율에 따라 화살표와 숫자 컨투어가 있는 위치를 대략적으로 추정 가능함. 해당 지역 근방에 중심이 위치한 컨투어 중 가장 작은 컨투어를 지정하고, 행동의 경우 블럭의 색이 다른 것을 이용해 특정 위치 픽셀의 RGB 값을 추출
+| ![image](https://github.com/bigdata4th-first-line/block_coding/assets/50532905/1fbf72fe-56a8-4c5b-9e4e-fedff5fcbc13) |
+|:--:|
+| <b> [Figure4] 컨투어 위치 구하기 </b> |
+| 블럭의 개수를 파악하고 내부 비율에 따라 화살표와 숫자 컨투어가 있는 위치를 대략적으로 추정 가능함. 해당 지역 근방에 중심이 위치한 컨투어 중 가장 작은 컨투어를 지정하고, 행동의 경우 블럭의 색이 다른 것을 이용해 특정 위치 픽셀의 RGB 값을 추출 |
 
 iii) 학습 이미지 생성
 <br>
-
-- 사진을 수천 장 촬영하여 학습 데이터를 구하는 것은 비효율적이어서 직접 생성함. 크기 조절과 무작위 회전, 회색조, 이진화 등의 과정을 거쳐 학습 데이터 생성. 데이터의 수는 화살표는 방향별로 1만 장, 숫자는 숫자별로 2만 장의 데이터를 생성함<br>
+| ![image](https://github.com/bigdata4th-first-line/block_coding/assets/50532905/35e57d7c-cf15-4135-83af-6287fe87e62a) |
+|:--:|
+| <b> [Figure5] 학습 이미지 생성 </b> |
+| 사진을 수천 장 촬영하여 학습 데이터를 구하는 것은 비효율적이어서 직접 생성함. 크기 조절과 무작위 회전, 회색조, 이진화 등의 과정을 거쳐 학습 데이터 생성. 데이터의 수는 화살표는 방향별로 1만 장, 숫자는 숫자별로 2만 장의 데이터를 생성함 |
 
 iv) Train History
 <br>
-
-- 학습 데이터의 다양성이 높지는 않기 때문에 train history의 accuracy는 1에 가깝게 나타남.
--> 정해진 상황에서는 좋은 예측 성능을 보여줄 수 있다.
+| ![image](https://github.com/bigdata4th-first-line/block_coding/assets/50532905/af9124a4-2f8b-4699-8e96-25c3875659a6) |
+|:--:|
+| <b> [Figure6] Train History </b> |
+| 학습 데이터의 다양성이 높지는 않기 때문에 train history의 accuracy는 1에 가깝게 나타남.
+-> 정해진 상황에서는 좋은 예측 성능을 보여줄 수 있다. |
 <br>
 
 v) 행동 예측
 <br>
+| ![image](https://github.com/bigdata4th-first-line/block_coding/assets/50532905/b5ddf1cc-b03e-43b6-a3fc-a3391a2a1c7f) |
+|:--:|
+| <b> [Figure7] HSV값 통한 행동 예측 </b> |
+| 블럭의 행동을 맞추는 과정. RGB는 3개의 값을 이용해서 추정해야하기 때문에 복잡하고 불편하다. HSV로 바꾸면 H 값 하나로 색상을 알 수 있어, H 값의 조건에 따라 행동을 추정 |
 
-- 블럭의 행동을 맞추는 과정. RGB는 3개의 값을 이용해서 추정해야하기 때문에 복잡하고 불편하다. HSV로 바꾸면 H 값 하나로 색상을 알 수 있어, H 값의 조건에 따라 행동을 추정
 <br>
 <br>
 <b>3. YOLO 모델 튜닝</b>
@@ -145,12 +158,18 @@ v) 행동 예측
 <br>
 
 i) 데이터 레포지토리 생성하기
-- Create New Project 클릭 후, Project Type - Object Detection 선택
+| ![image](https://github.com/bigdata4th-first-line/block_coding/assets/50532905/fd4e4f3c-ac75-4541-af87-be8233fa01a2) |
+|:--:|
+| <b> [Figure8] 레포지토리 생성 </b> |
+| Create New Project 클릭 후, Project Type - Object Detection 선택 |
 <br>
 <br>
+
 ii) 이미지 데이터 라벨링
-- 훈련 모델에 사용할 이미지 데이터를 가져온 후, 라벨링할 부분에 드래그한 후 클래스 추가<br>
-- 모든 사진의 라벨링 작업 후 Add # image to Dataset 클릭한 후에, Train, Valid, Test 비율 설정 (Train 70%, Valid 20%, Test 10% 비율로 설정)
+| ![labeling](https://github.com/bigdata4th-first-line/block_coding/assets/50532905/d23dfb57-f502-466b-8b48-21a86d2d1c8a) |
+|:--:|
+| <b> [Figure9] 이미지 라벨링 </b> |
+| 훈련 모델에 사용할 이미지 데이터를 가져온 후, 라벨링할 부분에 드래그한 후 클래스 추가<br>모든 사진의 라벨링 작업 후 Add # image to Dataset 클릭한 후에, Train, Valid, Test 비율 설정 (Train 70%, Valid 20%, Test 10% 비율로 설정)|
 <br>
 <br>
 iii) 데이터셋 내보내기
