@@ -71,7 +71,6 @@
 - 간단한 순서와 패턴을 인식할 수 있도록 한다.<br>
 
 | ![timeline](https://github.com/bigdata4th-first-line/block_coding/assets/50532905/1dfbd6a0-9397-439f-aa4c-2c4603c58761) |
-
 |:--:|
 | <b> [Figure1] Project Timeline </b> |
 
@@ -80,7 +79,6 @@
 
 
 | ![image](https://github.com/bigdata4th-first-line/block_coding/assets/50532905/2e6ea901-0848-4107-a2f8-e19afe0a84cc) |
-
 |:--:|
 | <b> [Figure2] Project Workflow </b> |
 | 모든 구성원은 전 과정에 종합적으로 기여했으나, 주도적으로 맡은 역할을 각자의 프레임에 넣어 나타냈다 |
