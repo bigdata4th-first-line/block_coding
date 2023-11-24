@@ -43,13 +43,14 @@
 
 <b>[최종 목표]</b>
 <br>
+
 <b>이미지 인식을 활용한 코딩 문제 풀이 모바일 어플리케이션 제작</b><br>
-<b>설명</b> <br>
-: 게임 요소와 시각적 효과를 통해 학습을 더욱 흥미롭게 만들어 학습자가 게임을 플레이 하면서 코딩 개념을 익힐 수 있다.<br>
+
+i) 게임 요소와 시각적 효과를 통해 학습을 더욱 흥미롭게 만들어 학습자가 게임을 플레이 하면서 코딩 개념을 익힐 수 있다.<br>
 - 게임 기반 학습 : 코딩을 게임 형식으로 학습하는 방법 포함<br>
 - 카메라 연동(카메라 API 및 라이브러리) : 카메라 설정, 화면 크기, 노출 조절, 화질 설정, 캡처 기능 제공
 
-: 사용자에게 효과적이고 흥미로운 코딩 학습 경험을 제공<br>
+ii) 사용자에게 효과적이고 흥미로운 코딩 학습 경험을 제공<br>
 - 자동 피드백 및 개인화된 학습
 - 최신 기술 및 트렌드 반영
 
@@ -181,6 +182,7 @@ iii) 데이터셋 내보내기
 <br>
 <br>
 iv) Google Colab 실행 후 모델 학습 실행하기
+
 - Google Colab 실행 후, 런타임 유형을 GPU로 변경<br>
 - YOLOv8 설치 및 import<br>
 - roboflow에서 라벨링한 데이터셋 가져온 후 모델 학습하기 (에포크 개수 25, 이미지 픽셀 800)<br>
@@ -216,15 +218,15 @@ vii) YOLO 컨투어 이미지 학습
 <b>4. App 개발</b>
 <br>
 <br>
-Python 내에서 Mobile Application을 구현하는 것을 목표로 했지만, 기능적 제약이나 환경 설정 문제로 Flutter를 활용해 UI 제작, API 및 DB 연동을 구현했다. <br>
-초기 기능 구현
+&nbsp; Python 내에서 Mobile Application을 구현하는 것을 목표로 했지만, 기능적 제약이나 환경 설정 문제로 Flutter를 활용해 UI 제작, API 및 DB 연동을 구현했다.
 <br>
+<br>
+초기 기능 구현
+
 - 카메라<br>
 - 이동 버튼
-<br>
-<br>
+
 추가 기능
-<br>
 - UI 변경<br>
 - Database 연동<br>
 - AWS 서버 구축 및 API 연동 <br>
@@ -287,19 +289,19 @@ https://youtu.be/u0yVr2vYNkU?si=l6BmoKHWTctFtOcE </b>
 
 ## 5. 고도화 및 추후 개선 방안
 <br>
-교육 콘텐츠 
+<b>교육 콘텐츠</b> 
 <br>
 - 사용자가 창의성을 발휘해서 문제를 해결할 수 있는 콘텐츠를 개발한다.
 <br>
-게임성
+<b>게임성</b>
 <br>
 - 흥미를 통해 스스로 학습에 몰두할 수 있도록 게임성을 확보해 줄 필요가 있다.
 <br>
-모델 유연성
+<b>모델 유연성</b>
 <br>
 - 다양한 각도에서 찍더라도 100%에 가깝게 인식할 수 있도록 모델의 유연성과 정확도를 올려야 한다.
 <br>
-지연 시간 최소화
+<b>지연 시간 최소화</b>
 <br>
 - 긴 로딩 시간은 사용자의 흥미를 저하시키므로 3초 이내로 작동할 수 있도록 지연 시간을 최소화해야 한다.
 <br>
@@ -307,21 +309,21 @@ https://youtu.be/u0yVr2vYNkU?si=l6BmoKHWTctFtOcE </b>
 
 ## 6. 개발 환경
 <br>
-프로그래밍 언어 및 라이브러리
+<b>프로그래밍 언어 및 라이브러리</b>
 <br>
 - Python, Dart, HTML, Gradio, Yolo, Tensorflow, OpenCV
 <br>
-통합 개발 환경(IDE)
+<b>통합 개발 환경(IDE)</b>
 <br>
 - VS Code
 <br>
-언어 및 프레임워크 연구
+<b>언어 및 프레임워크 연구</b>
 <br>
 - Beeware, kivy, kotlin, react, Android Studio,  Flutter 
 <br>
 - Github Copilot 
 <br>
-프로젝트 관리 도구
+<b>프로젝트 관리 도구</b>
 <br>
 - GitHub, roboflow
 <br>
@@ -353,18 +355,18 @@ uvicorn (version 0.24.0.post1)<br>
 
 ## 7. 소스 코드
 <br>
-깃허브 주소
+<b>깃허브 주소</b>
 <br>
 https://github.com/bigdata4th-first-line/block_coding.git
 <br>
-yolo 이미지 인식 모델(Hugging Face)
+<br>
+<b>yolo 이미지 인식 모델(Hugging Face)</b>
 <br>
 https://tongsil-find-arrow-direction-number.hf.space
 <br>
 <br>
 
 ## 8. 참고 문헌
-<br>
 <br>
 5세 유아의 특징 - 5세 발달 특성>연령별 발달정보>육아정보 | 아동교육연구지원센터 (silla.ac.kr)<br>
 OSMO - https://www.playosmo.com/ko-KR/<br>
